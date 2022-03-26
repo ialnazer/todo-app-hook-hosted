@@ -5,6 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import ToolBar from '@material-ui/core/ToolBar';
 import Grid from '@material-ui/core/Grid';
 import TodoList from './TodoList';
+import TodoForm from './TodoForm';
+import { v4 as uuidv4 } from 'uuid';
 
 function TodoApp() {
     const initialTodos = [
@@ -13,6 +15,15 @@ function TodoApp() {
         { id: 3, task: 'drink', completed: false },
     ];
     const [todos, setTodos] = useState(initialTodos);
+
+    const handleSubmit = (newTask) => {
+        const newTodo = {
+            id: uuidv4(),
+            task: newTask,
+            completed: false
+        };
+        setTodos([...todos, newTodo]);
+    }
     return (
         <Paper
             style={{
