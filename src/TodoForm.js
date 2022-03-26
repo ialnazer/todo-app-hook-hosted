@@ -8,14 +8,20 @@ function TodoForm({ addTodo }) {
     const [task, handleChange, reset] = useInputState('');
 
     return (
-        <Paper>
+        <Paper style={{ margin: '1rem 0', padding: '0 1rem' }}>
             <form onSubmit={e => {
                 e.preventDefault();
                 addTodo(task);
                 reset();
             }}
             >
-                <TextField value={task} onChange={handleChange} placeholder='new task' />
+                <TextField
+                    fullWidth
+                    label='Add New Todo'
+                    margin='normal'
+                    value={task}
+                    onChange={handleChange}
+                />
                 <Button type='submit'>Add Todo</Button>
             </form>
         </Paper>

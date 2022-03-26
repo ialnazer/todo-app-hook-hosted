@@ -14,9 +14,9 @@ function TodoApp() {
         { id: 2, task: 'eat', completed: true },
         { id: 3, task: 'drink', completed: false },
     ];
-    const [todos, setTodos] = useState(initialTodos);
+    const [todos, setTodos] = useState([]);
 
-    const handleSubmit = (newTask) => {
+    const addTodo = (newTask) => {
         const newTodo = {
             id: uuidv4(),
             task: newTask,
@@ -39,7 +39,12 @@ function TodoApp() {
                     <Typography color='inherit'>Todos With Hooks</Typography>
                 </ToolBar>
             </AppBar>
-            <TodoList todos={todos} />
+            <Grid container justifyContent='center' style={{marginTop: '1rem'}}>
+                <Grid item xs={11} md={8} lg={4}>
+                    <TodoForm addTodo={addTodo} />
+                    <TodoList todos={todos} />
+                </Grid>
+            </Grid>
         </Paper>
     )
 }
