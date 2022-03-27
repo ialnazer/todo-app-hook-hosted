@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
-function TodoItem({ task, id, completed, deleteTodo }) {
+function TodoItem({ task, id, completed, deleteTodo, toggleTodo }) {
     return (
         <div>
             <ListItem>
@@ -16,6 +16,7 @@ function TodoItem({ task, id, completed, deleteTodo }) {
                     tabIndex={-1}
                     disableRipple
                     checked={completed}
+                    onClick={() => toggleTodo(id)}
                 />
                 <ListItemText style={{ textDecoration: completed ? 'line-through' : 'none' }}>{task}</ListItemText>
                 <ListItemSecondaryAction>

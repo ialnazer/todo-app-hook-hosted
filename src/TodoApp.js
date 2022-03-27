@@ -16,7 +16,7 @@ function TodoApp() {
     ];
     const [todos, setTodos] = useState([]);
 
-    const addTodo = (newTask) => {
+    const addTodo = newTask => {
         const newTodo = {
             id: uuidv4(),
             task: newTask,
@@ -24,9 +24,16 @@ function TodoApp() {
         };
         setTodos([...todos, newTodo]);
     }
-    const deleteTodo = (todoId) => {
+    const deleteTodo = todoId => {
         const newTodos = todos.filter(todo => todo.id !== todoId);
         setTodos(newTodos);
+    }
+    const toggleTodo = todoId => {
+            const newTodos = todos.map(todo => {
+                if (todo.id == todoId) return { ...todo, completed: !todo.completed }
+                else return todo
+            });
+            setTodos(newTodos);
     }
     return (
         <Paper
@@ -49,6 +56,7 @@ function TodoApp() {
                     <TodoList
                         todos={todos}
                         deleteTodo={deleteTodo}
+                        toggleTodo={toggleTodo}
                     />
                 </Grid>
             </Grid>
