@@ -24,6 +24,10 @@ function TodoApp() {
         };
         setTodos([...todos, newTodo]);
     }
+    const deleteTodo = (todoId) => {
+        const newTodos = todos.filter(todo => todo.id !== todoId);
+        setTodos(newTodos);
+    }
     return (
         <Paper
             style={{
@@ -39,10 +43,13 @@ function TodoApp() {
                     <Typography color='inherit'>Todos With Hooks</Typography>
                 </ToolBar>
             </AppBar>
-            <Grid container justifyContent='center' style={{marginTop: '1rem'}}>
+            <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
                 <Grid item xs={11} md={8} lg={4}>
                     <TodoForm addTodo={addTodo} />
-                    <TodoList todos={todos} />
+                    <TodoList
+                        todos={todos}
+                        deleteTodo={deleteTodo}
+                    />
                 </Grid>
             </Grid>
         </Paper>

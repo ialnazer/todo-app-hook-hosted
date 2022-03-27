@@ -5,7 +5,11 @@ import TodoItem from './TodoItem';
 
 function TodoList(props) {
     const todos = props.todos.map((todo, index) => (
-            <TodoItem {...todo} key={index}/>
+        <TodoItem
+            {...todo}
+            key={index}
+            deleteTodo={props.deleteTodo}
+        />
     ));
     return (
         <Paper>

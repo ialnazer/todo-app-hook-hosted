@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
-function TodoItem({ task, id, completed }) {
+function TodoItem({ task, id, completed, deleteTodo }) {
     return (
         <div>
             <ListItem>
@@ -19,10 +19,10 @@ function TodoItem({ task, id, completed }) {
                 />
                 <ListItemText style={{ textDecoration: completed ? 'line-through' : 'none' }}>{task}</ListItemText>
                 <ListItemSecondaryAction>
-                    <IconButton aria-label='Delete'>
+                    <IconButton aria-label='Delete' onClick={() => deleteTodo(id)}>
                         <DeleteIcon />
                     </IconButton>
-                    <IconButton aria-label='Edit'>
+                    <IconButton aria-label='Edit' >
                         <EditIcon />
                     </IconButton>
                 </ListItemSecondaryAction>
