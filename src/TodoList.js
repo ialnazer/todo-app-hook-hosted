@@ -11,6 +11,7 @@ function TodoList(props) {
             deleteTodo={props.deleteTodo}
             toggleTodo={props.toggleTodo}
             editTodo={props.editTodo}
+            notLastTodo = {index < props.todos.length-1}
         />
     ));
     return (

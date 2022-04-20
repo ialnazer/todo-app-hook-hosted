@@ -16,13 +16,14 @@ function TodoForm({ addTodo }) {
             }}
             >
                 <TextField
+                    autoFocus
                     fullWidth
                     label='Add New Todo'
                     margin='normal'
                     value={task}
                     onChange={handleChange}
                 />
-                <Button type='submit'>Add Todo</Button>
+                {/* <Button type='submit'>Add Todo</Button> */}
             </form>
         </Paper>
     )

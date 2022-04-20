@@ -10,17 +10,17 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import EditTodoForm from './EditTodoForm';
 import useToggle from './hooks/useToggle';
 
-function TodoItem({ task, id, completed, deleteTodo, toggleTodo, editTodo }) {
+function TodoItem({ task, id, completed, deleteTodo, toggleTodo, editTodo, notLastTodo }) {
     const [showEditTodoForm, toggleShowEditTodoForm] = useToggle(false);
 
     return (
         <div>
-            <ListItem>
+            <ListItem style={{ height: '64px' }}>
                 {showEditTodoForm ?
                     < EditTodoForm todoId={id} task={task} editTodo={editTodo} close={toggleShowEditTodoForm} />
                     :
-                    <> 
-                    {/* <> fragment cz Checkbox and what follow are JSON */}
+                    <>
+                        {/* <> fragment cz Checkbox and what follow are JSON */}
                         <Checkbox
                             tabIndex={-1}
                             disableRipple
@@ -39,7 +39,7 @@ function TodoItem({ task, id, completed, deleteTodo, toggleTodo, editTodo }) {
                     </>
                 }
             </ListItem>
-            <Divider />
+            {notLastTodo && <Divider />}
         </div>
     )
 }

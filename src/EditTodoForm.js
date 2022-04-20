@@ -8,24 +8,25 @@ function EditTodoForm(props) {
     const [task, handleChange, reset] = useInputState(props.task);
 
     return (
-        <Paper style={{ margin: '1rem 0', padding: '0 1rem' }}>
-            <form onSubmit={e => {
+        <form
+            style={{ margin: '1rem 0', width: '50%' }}
+            onSubmit={e => {
                 e.preventDefault();
                 props.editTodo(props.todoId, task);
                 reset();
                 props.close();
             }}
-            >
-                <TextField
-                    fullWidth
-                    label='Edit Todo'
-                    margin='normal'
-                    value={task}
-                    onChange={handleChange}
-                />
-                <Button type='submit'>Edit Todo</Button>
-            </form>
-        </Paper>
+        >
+            <TextField
+                fullWidth
+                autoFocus
+                label='Edit Todo'
+                margin='normal'
+                value={task}
+                onChange={handleChange}
+            />
+            {/* <Button type='submit'>Edit Todo</Button> */}
+        </form>
     )
 }
 export default EditTodoForm;
