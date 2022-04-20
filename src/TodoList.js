@@ -11,15 +11,17 @@ function TodoList(props) {
             deleteTodo={props.deleteTodo}
             toggleTodo={props.toggleTodo}
             editTodo={props.editTodo}
-            notLastTodo = {index < props.todos.length-1}
+            notLastTodo={index < props.todos.length - 1}
         />
     ));
-    return (
-        <Paper>
-            <List>
-                {todos}
-            </List>
-        </Paper>
-    )
+    if (props.todos.length)
+        return (
+            <Paper>
+                <List>
+                    {todos}
+                </List>
+            </Paper>
+        )
+    return null
 }
 export default TodoList;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,7 +14,11 @@ function TodoApp() {
         { id: 2, task: 'eat', completed: true },
         { id: 3, task: 'drink', completed: false },
     ];
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState(JSON.parse(window.localStorage.getItem('todos')) || []);
+
+    useEffect(() => {
+        window.localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos]);
 
     const addTodo = newTask => {
         const newTodo = {
