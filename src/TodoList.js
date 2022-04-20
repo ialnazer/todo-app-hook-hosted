@@ -10,6 +10,7 @@ function TodoList(props) {
             key={index}
             deleteTodo={props.deleteTodo}
             toggleTodo={props.toggleTodo}
+            editTodo={props.editTodo}
         />
     ));
     return (
