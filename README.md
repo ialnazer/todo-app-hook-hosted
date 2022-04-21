@@ -6,3 +6,13 @@
 Enjoy adding tasks to your **Todo** list, mark them as completed, edit and delete them
 
 This project is developed along with [Colt Steel's React course](https://www.udemy.com/course/modern-react-bootcamp) - *Udemy*
+
+To open it in your browser try:
+```
+git clone https://github.com/ialnazer/todo-app-hook
+cd todo-app-hook
+npm install
+npm install @material-ui/core
+npm install @material-ui/icons
+npm start
+```
