@@ -7,6 +7,10 @@ Enjoy adding tasks to your **Todo** list, mark them as completed, edit and delet
 
 This project is developed along with [Colt Steel's React course](https://www.udemy.com/course/modern-react-bootcamp) - *Udemy*
 
+New added features:
+- The back to top scrolling
+- The theme toggling
+
 To open it in your browser try:
 ```
 git clone https://github.com/ialnazer/todo-app-hook
