@@ -19,7 +19,7 @@ function TodoItem({ task, id, completed, notLastTodo }) {
         <div>
             <ListItem style={{ height: '64px' }}>
                 {showEditTodoForm ?
-                    < EditTodoForm todoId={id} task={task} editTodo={editTodo} close={toggleShowEditTodoForm} />
+                    < EditTodoForm todoId={id} task={task} close={toggleShowEditTodoForm} />
                     :
                     <>
                         {/* <> fragment cz Checkbox and what follow are JSON */}
