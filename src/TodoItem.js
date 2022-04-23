@@ -9,11 +9,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import EditTodoForm from './EditTodoForm';
 import useToggle from './hooks/useToggle';
-import {TodosContext} from './contexts/todos.context'
+import {DispatchContext} from './contexts/todos.context'
 
 function TodoItem({ task, id, completed, notLastTodo }) {
     const [showEditTodoForm, toggleShowEditTodoForm] = useToggle(false);
-    const { dispatch } = useContext(TodosContext);
+    const { dispatch } = useContext(DispatchContext);
 
     return (
         <div>
