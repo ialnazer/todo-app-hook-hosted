@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
@@ -45,4 +45,4 @@ function TodoItem({ task, id, completed, notLastTodo }) {
         </div>
     )
 }
-export default TodoItem;
+export default memo(TodoItem);
