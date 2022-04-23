@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import useTodoState from './hooks/useTodoState';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
@@ -63,8 +62,8 @@ ScrollTop.propTypes = {
 
 function TodoApp(props) {
 
-    const initialTodos = [];
-    const { todos, addTodo, deleteTodo, editTodo, toggleTodo } = useTodoState(initialTodos);
+    // const initialTodos = [];
+    // const { todos, addTodo, deleteTodo, editTodo, toggleTodo } = useTodoState(initialTodos);
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     return (
@@ -87,13 +86,8 @@ function TodoApp(props) {
             <ToolBar id="back-to-top-anchor" />
             <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
                 <Grid item xs={11} md={8} lg={4}>
-                    <TodoForm addTodo={addTodo} />
-                    <TodoList
-                        todos={todos}
-                        deleteTodo={deleteTodo}
-                        toggleTodo={toggleTodo}
-                        editTodo={editTodo}
-                    />
+                    <TodoForm />
+                    <TodoList />
                 </Grid>
             </Grid>
             <ScrollTop {...props}>

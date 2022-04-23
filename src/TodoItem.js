@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
@@ -9,9 +9,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import EditTodoForm from './EditTodoForm';
 import useToggle from './hooks/useToggle';
+import {TodosContext} from './contexts/todos.context'
 
-function TodoItem({ task, id, completed, deleteTodo, toggleTodo, editTodo, notLastTodo }) {
+function TodoItem({ task, id, completed, notLastTodo }) {
     const [showEditTodoForm, toggleShowEditTodoForm] = useToggle(false);
+    const { deleteTodo, editTodo, toggleTodo } = useContext(TodosContext);
 
     return (
         <div>
