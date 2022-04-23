@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import useTodoState from './hooks/useTodoState';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -13,6 +13,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
+import Switch from "@material-ui/core/Switch";
 
 function ScrollTop(props) {
     const { children, window } = props;
@@ -74,23 +75,24 @@ function TodoApp(props) {
             }}
             elevation={0}
         >
-                <AppBar color='primary' position='static' style={{ height: '64px' }}>
-                    <ToolBar>
-                        <Typography variant='h5' color='inherit'>Todo List</Typography>
-                    </ToolBar>
-                </AppBar>
-                <ToolBar id="back-to-top-anchor" />
-                <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
-                    <Grid item xs={11} md={8} lg={4}>
-                        <TodoForm addTodo={addTodo} />
-                        <TodoList
-                            todos={todos}
-                            deleteTodo={deleteTodo}
-                            toggleTodo={toggleTodo}
-                            editTodo={editTodo}
-                        />
-                    </Grid>
+            <AppBar color='primary' position='static' style={{ height: '64px' }}>
+                <ToolBar>
+                    <Typography variant='h5' color='inherit'>Todo List</Typography>
+                    <Switch />
+                </ToolBar>
+            </AppBar>
+            <ToolBar id="back-to-top-anchor" />
+            <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
+                <Grid item xs={11} md={8} lg={4}>
+                    <TodoForm addTodo={addTodo} />
+                    <TodoList
+                        todos={todos}
+                        deleteTodo={deleteTodo}
+                        toggleTodo={toggleTodo}
+                        editTodo={editTodo}
+                    />
                 </Grid>
+            </Grid>
             <ScrollTop {...props}>
                 <Fab color="secondary" size="small" aria-label="scroll back to top">
                     <KeyboardArrowUpIcon />
