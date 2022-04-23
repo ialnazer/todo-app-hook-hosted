@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useContext } from 'react';
 import useTodoState from './hooks/useTodoState';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -11,9 +11,10 @@ import Box from '@material-ui/core/Box';
 import Fab from '@material-ui/core/Fab';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
+import Switch from "@material-ui/core/Switch";
 import TodoList from './TodoList';
 import TodoForm from './TodoForm';
-import Switch from "@material-ui/core/Switch";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 function ScrollTop(props) {
     const { children, window } = props;
@@ -64,6 +65,7 @@ function TodoApp(props) {
 
     const initialTodos = [];
     const { todos, addTodo, deleteTodo, editTodo, toggleTodo } = useTodoState(initialTodos);
+    const { isDarkMode } = useContext(ThemeContext);
 
     return (
         <Paper
@@ -71,11 +73,11 @@ function TodoApp(props) {
                 padding: 0,
                 margin: 0,
                 height: '100vh',
-                backgroundColor: '#fafafa'
+                backgroundColor: isDarkMode ? 'rgba(0, 0, 0, 0.7)' : '#fafafa'
             }}
             elevation={0}
         >
-            <AppBar color='primary' position='static' style={{ height: '64px' }}>
+            <AppBar color={isDarkMode ? 'default' : 'primary'} position='static' style={{ height: '64px' }}>
                 <ToolBar>
                     <Typography variant='h5' color='inherit'>Todo List</Typography>
                     <Switch />
