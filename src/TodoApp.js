@@ -80,6 +80,7 @@ function TodoApp(props) {
             <AppBar color={isDarkMode ? 'default' : 'primary'} position='static' style={{ height: '64px' }}>
                 <ToolBar>
                     <Typography variant='h5' color='inherit'>Todo List</Typography>
+                    <div style={{flexGrow: 1}}/>
                     <Switch onChange={toggleTheme}/>
                 </ToolBar>
             </AppBar>
