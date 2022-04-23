@@ -1,8 +1,11 @@
 import TodoApp from './TodoApp';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <TodoApp />
+    <ThemeProvider>
+      <TodoApp />
+    </ThemeProvider>
   );
 }
 
