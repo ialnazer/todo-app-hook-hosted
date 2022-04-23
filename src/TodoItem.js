@@ -13,7 +13,7 @@ import {TodosContext} from './contexts/todos.context'
 
 function TodoItem({ task, id, completed, notLastTodo }) {
     const [showEditTodoForm, toggleShowEditTodoForm] = useToggle(false);
-    const { deleteTodo, editTodo, toggleTodo } = useContext(TodosContext);
+    const { dispatch } = useContext(TodosContext);
 
     return (
         <div>
@@ -27,11 +27,11 @@ function TodoItem({ task, id, completed, notLastTodo }) {
                             tabIndex={-1}
                             disableRipple
                             checked={completed}
-                            onClick={() => toggleTodo(id)}
+                            onClick={() => dispatch({type: 'TOGGLE', id: id})}
                         />
                         <ListItemText style={{ textDecoration: completed ? 'line-through' : 'none' }}>{task}</ListItemText>
                         <ListItemSecondaryAction>
-                            <IconButton aria-label='Delete' onClick={() => deleteTodo(id)}>
+                            <IconButton aria-label='Delete' onClick={() => dispatch({type: 'REMOVE', id: id})}>
                                 <DeleteIcon />
                             </IconButton>
                             <IconButton aria-label='Edit' onClick={() => toggleShowEditTodoForm()}>
