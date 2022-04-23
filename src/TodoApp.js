@@ -65,7 +65,7 @@ function TodoApp(props) {
 
     const initialTodos = [];
     const { todos, addTodo, deleteTodo, editTodo, toggleTodo } = useTodoState(initialTodos);
-    const { isDarkMode } = useContext(ThemeContext);
+    const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
     return (
         <Paper
@@ -80,7 +80,7 @@ function TodoApp(props) {
             <AppBar color={isDarkMode ? 'default' : 'primary'} position='static' style={{ height: '64px' }}>
                 <ToolBar>
                     <Typography variant='h5' color='inherit'>Todo List</Typography>
-                    <Switch />
+                    <Switch onChange={toggleTheme}/>
                 </ToolBar>
             </AppBar>
             <ToolBar id="back-to-top-anchor" />
