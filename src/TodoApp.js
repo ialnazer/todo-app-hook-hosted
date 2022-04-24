@@ -72,7 +72,8 @@ function TodoApp(props) {
                 padding: 0,
                 margin: 0,
                 height: '100vh',
-                backgroundColor: isDarkMode ? 'rgba(0, 0, 0, 0.7)' : '#fafafa'
+                backgroundColor: isDarkMode ? 'rgba(0, 0, 0, 0.7)' : '#fafafa',
+                overflow: 'scroll'
             }}
             elevation={0}
         >
