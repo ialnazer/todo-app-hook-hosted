@@ -17,7 +17,5 @@ To open it in your browser try:
 git clone https://github.com/ialnazer/todo-app-hook
 cd todo-app-hook
 npm install
-npm install @material-ui/core
-npm install @material-ui/icons
 npm start
 ```
