@@ -12,10 +12,4 @@ New added features:
 - The back to top scrolling
 - The theme toggling
 
-To open it in your browser try:
-```
-git clone https://github.com/ialnazer/todo-app-hook
-cd todo-app-hook
-npm install
-npm start
-```
+Click [here](https://ialnazer.github.io/todo-app-hook-hosted/) to open it in your browser
